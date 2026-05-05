@@ -1,0 +1,20 @@
+.signup-container {
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--bg-soft);
+}
+
+.signup-title {
+  color: var(--text);
+  font-weight: bold;
+}
+
+.signup-page-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg);
+}
