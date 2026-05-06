@@ -1,11 +1,13 @@
 import React from "react";
+import CardGrid from "../components/CardGrid";
 
 const Home = ({ user }) => {
   return (
     <div>
-      <h1>EcommerceHub</h1>
-
       {user ? <p>Logged in as {user.email}</p> : <p>Not logged in</p>}
+      <h1>EcommerceHub</h1>
+      Our Products:
+      <CardGrid />
     </div>
   );
 };

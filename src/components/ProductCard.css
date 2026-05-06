@@ -1,0 +1,40 @@
+.card-container {
+  background-color: var(--bg-soft);
+  border-radius: 8px;
+  color: var(--text-primary);
+  margin: 10px;
+  padding: 15px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-header {
+  background-color: var(--bg);
+  color: var(--text-secondary);
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-footer {
+  margin-top: 10px;
+  background-color: var(--bg);
+  border-radius: 0 0 8px 8px;
+  font-weight: bolder;
+}
+
+.add-cart-btn {
+  background-color: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
