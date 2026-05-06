@@ -1,7 +1,16 @@
 import React from "react";
 import "./Narbar.css";
+import { supabase } from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ user, setUser }) => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    navigate("/login");
+  };
+
   return (
     <div>
       <div className="nav-container">
@@ -14,9 +23,14 @@ const Navbar = () => {
               <a href="/">Home</a>
             </li>
             <li>
+              <a href="/login">Login</a>
+            </li>
+            <li>
               <a href="/signup">Signup</a>
             </li>
           </ul>
+
+          <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
     </div>

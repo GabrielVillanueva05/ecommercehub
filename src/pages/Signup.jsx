@@ -1,18 +1,31 @@
 import React from "react";
 import { useState } from "react";
 import "./Signup.css";
+import { supabase } from "../supabaseClient";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSignup(e) {
+  async function handleSignup(e) {
     e.preventDefault();
 
-    console.log("Signup info:", {
-      email,
-      password,
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
     });
+
+    if (error) {
+      console.log("Signup Error:", error.message);
+      alert(error.message);
+      return;
+    }
+
+    console.log("Signup Success:", {
+      data,
+    });
+
+    alert("Account Created! Check your email to confirm your account.");
   }
 
   return (
