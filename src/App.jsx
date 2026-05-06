@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 import { supabase } from "./supabaseClient";
 import { useState, useEffect } from "react";
 
@@ -31,6 +32,8 @@ function App() {
           element={<Login user={user} setUser={setUser} />}
         />
       </Routes>
+
+      <Footer />
     </>
   );
 }

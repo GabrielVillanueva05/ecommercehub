@@ -1,0 +1,11 @@
+.footer-container {
+  background-color: var(--bg-soft);
+  padding: 1rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+}

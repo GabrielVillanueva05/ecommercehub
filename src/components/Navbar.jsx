@@ -16,7 +16,9 @@ const Navbar = ({ setUser }) => {
     <div>
       <div className="nav-container">
         <div className="logo-container">
-          <h1>EcommerceHub</h1>
+          <Link to="/">
+            <h1>EcommerceHub</h1>
+          </Link>
         </div>
         <div className="nav-links">
           <div className="nav-list">
