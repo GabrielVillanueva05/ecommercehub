@@ -2,6 +2,7 @@ import React from "react";
 import "./Narbar.css";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -18,17 +19,11 @@ const Navbar = ({ user, setUser }) => {
           <h1>EcommerceHub</h1>
         </div>
         <div className="nav-links">
-          <ul className="nav-list">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-            <li>
-              <a href="/signup">Signup</a>
-            </li>
-          </ul>
+          <div className="nav-list">
+            <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </div>
 
           <button onClick={handleLogout}>Logout</button>
         </div>
