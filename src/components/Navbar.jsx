@@ -1,10 +1,10 @@
-import React from "react";
 import "./Navbar.css";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
-const Navbar = ({ setUser }) => {
+const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -23,11 +23,24 @@ const Navbar = ({ setUser }) => {
         <div className="nav-links">
           <div className="nav-list">
             <Link to="/">Home</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
-          </div>
 
-          <button onClick={handleLogout}>Logout</button>
+            <Link to="/cart" className="cart-link">
+              <FaShoppingCart className="cart-icon" />
+            </Link>
+
+            {user ? (
+              <>
+                <button className="logout-btn" onClick={handleLogout}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/signup">Signup</Link>
+                <Link to="/login">Login</Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

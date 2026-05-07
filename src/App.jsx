@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
 import { supabase } from "./supabaseClient";
 import { useState, useEffect } from "react";
 
@@ -26,6 +27,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home user={user} />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />
         <Route
           path="/login"
