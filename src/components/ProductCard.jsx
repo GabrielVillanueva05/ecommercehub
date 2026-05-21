@@ -3,8 +3,17 @@ import { useEffect } from "react";
 
 const ProductCard = ({ product, cartProducts, setCartProducts }) => {
   const handleAddToCart = () => {
-    const updatedCart = [...cartProducts, product];
-    setCartProducts(updatedCart);
+    const existingItem = cartProducts.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.quantity++;
+
+      setCartProducts([...cartProducts]);
+    } else {
+      const productToAdd = { ...product, quantity: 1 };
+
+      setCartProducts([...cartProducts, productToAdd]);
+    }
   };
 
   useEffect(() => {

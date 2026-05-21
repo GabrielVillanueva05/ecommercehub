@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import { supabase } from "./supabaseClient";
 import { useState, useEffect } from "react";
-import { products } from "./data/cartProducts";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,7 +15,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState(() => {
     const savedCart = localStorage.getItem("cart");
 
-    return savedCart ? JSON.parse(savedCart) : products;
+    return savedCart ? JSON.parse(savedCart) : [];
   });
 
   useEffect(() => {

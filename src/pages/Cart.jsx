@@ -17,6 +17,19 @@ const Cart = ({ cartProducts, setCartProducts }) => {
     localStorage.setItem("cart", JSON.stringify(cartProducts));
   }, [cartProducts]);
 
+  const handleAddQuantity = (product) => {
+    product.quantity++;
+
+    setCartProducts([...cartProducts]);
+  };
+
+  const handleMinusQuantity = (product) => {
+    if (product.quantity > 1) {
+      product.quantity--;
+      setCartProducts([...cartProducts]);
+    } else handleCartRemove(product.id);
+  };
+
   return (
     <div className="cart-page">
       <div className="cart-container">
@@ -38,9 +51,19 @@ const Cart = ({ cartProducts, setCartProducts }) => {
                     />
                     <p>{product.name}</p>
                     <div>
-                      <button className="quantity-btn">-</button>
-                      <span className="quantity">1</span>
-                      <button className="quantity-btn">+</button>
+                      <button
+                        onClick={() => handleMinusQuantity(product)}
+                        className="quantity-btn"
+                      >
+                        -
+                      </button>
+                      <span className="quantity">{product.quantity}</span>
+                      <button
+                        onClick={() => handleAddQuantity(product)}
+                        className="quantity-btn"
+                      >
+                        +
+                      </button>
                     </div>
                     <p>${product.price.toFixed(2)}</p>
 
