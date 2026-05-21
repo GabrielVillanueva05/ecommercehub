@@ -8,9 +8,16 @@ import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import { supabase } from "./supabaseClient";
 import { useState, useEffect } from "react";
+import { products } from "./data/cartProducts";
 
 function App() {
   const [user, setUser] = useState(null);
+
+  const [cartProducts, setCartProducts] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+
+    return savedCart ? JSON.parse(savedCart) : products;
+  });
 
   useEffect(() => {
     const getUser = async () => {
@@ -26,8 +33,25 @@ function App() {
       <Navbar user={user} setUser={setUser} />
 
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              user={user}
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
+            />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
+            />
+          }
+        />
         <Route path="/signup" element={<Signup />} />
         <Route
           path="/login"

@@ -1,9 +1,8 @@
-import React from "react";
 import CardGrid from "../components/CardGrid";
 import "./Home.css";
 import { FaUser } from "react-icons/fa";
 
-const Home = ({ user }) => {
+const Home = ({ user, cartProducts, setCartProducts }) => {
   return (
     <div className="home-container">
       {user ? (
@@ -15,7 +14,7 @@ const Home = ({ user }) => {
       )}
       <h1>EcommerceHub</h1>
       Our Products:
-      <CardGrid />
+      <CardGrid cartProducts={cartProducts} setCartProducts={setCartProducts} />
     </div>
   );
 };

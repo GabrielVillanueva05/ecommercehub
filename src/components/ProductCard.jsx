@@ -1,7 +1,16 @@
-import React from "react";
 import "./ProductCard.css";
+import { useEffect } from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cartProducts, setCartProducts }) => {
+  const handleAddToCart = () => {
+    const updatedCart = [...cartProducts, product];
+    setCartProducts(updatedCart);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  }, [cartProducts]);
+
   return (
     <>
       <div className="card-container">
@@ -14,7 +23,9 @@ const ProductCard = ({ product }) => {
           <p>Description: {product.description}</p>
         </div>
         <div className="card-btn-container">
-          <button className="add-cart-btn">Add to Cart</button>
+          <button onClick={handleAddToCart} className="add-cart-btn">
+            Add to Cart
+          </button>
         </div>
       </div>
     </>

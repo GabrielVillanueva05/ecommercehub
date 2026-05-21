@@ -1,17 +1,10 @@
 import "./Cart.css";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { products } from "../data/cartProducts";
 import { CiCircleRemove } from "react-icons/ci";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-const Cart = () => {
-  const [cartProducts, setCartProducts] = useState(() => {
-    const savedCart = localStorage.getItem("cart");
-
-    return savedCart ? JSON.parse(savedCart) : products;
-  });
-
+const Cart = ({ cartProducts, setCartProducts }) => {
   console.log(cartProducts);
 
   const handleCartRemove = (id) => {
