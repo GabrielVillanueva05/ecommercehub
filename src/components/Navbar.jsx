@@ -2,10 +2,13 @@ import "./Navbar.css";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaSun, FaMoon } from "react-icons/fa";
+import { useTheme } from "../ThemeContext";
 
 const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
@@ -27,6 +30,10 @@ const Navbar = ({ user, setUser }) => {
             <Link to="/cart" className="cart-link">
               <FaShoppingCart className="cart-icon" />
             </Link>
+
+            <button className="theme-toggle" onClick={toggleTheme}>
+              {theme === "dark" ? <FaSun /> : <FaMoon />}
+            </button>
 
             {user ? (
               <>

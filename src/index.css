@@ -17,6 +17,18 @@
   --accent: #22c55e; /* ecommerce green (actions) */
 }
 
+/* Light theme variables */
+[data-theme="light"] {
+  --bg: #ffffff; /* white background */
+  --bg-soft: #f8f9fa; /* light grey */
+  --border: #dee2e6;
+
+  --text: #212529; /* dark text */
+  --text-muted: #6c757d;
+
+  --accent: #28a745; /* darker green for light mode */
+}
+
 /* BASE */
 body {
   background-color: var(--bg);
