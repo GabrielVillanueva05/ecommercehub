@@ -17,6 +17,13 @@ const Cart = ({ cartProducts, setCartProducts }) => {
     localStorage.setItem("cart", JSON.stringify(cartProducts));
   }, [cartProducts]);
 
+  const subtotal = cartProducts.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  const tax = subtotal * 0.07;
+  const total = subtotal + tax + 5;
+
   const handleAddQuantity = (product) => {
     product.quantity++;
 
@@ -37,7 +44,13 @@ const Cart = ({ cartProducts, setCartProducts }) => {
           <div>
             <div className="top-cart-content">
               <h2 className="cart-title">Your Cart</h2>
-              <p className="cart-quantity">3 Items</p>
+              <p className="cart-quantity">
+                {cartProducts.reduce(
+                  (total, product) => total + product.quantity,
+                  0,
+                )}{" "}
+                Items
+              </p>
             </div>
 
             <div className="middle-cart-content">
@@ -67,7 +80,10 @@ const Cart = ({ cartProducts, setCartProducts }) => {
                     </div>
                     <p>${product.price.toFixed(2)}</p>
 
-                    <button onClick={() => handleCartRemove(product.id)}>
+                    <button
+                      className="remove-item-btn"
+                      onClick={() => handleCartRemove(product.id)}
+                    >
                       <CiCircleRemove className="remove-item-icon" />
                     </button>
                   </div>
@@ -86,6 +102,43 @@ const Cart = ({ cartProducts, setCartProducts }) => {
         <div className="summary-container">
           <div className="top-summary-container">
             <h3 className="summary-title">Summary</h3>
+          </div>
+          <div className="summary-body">
+            <div className="summary-items">
+              <div className="summary-item summary-item-header">
+                <p>Product</p>
+                <p>Price</p>
+                <p>Qty</p>
+              </div>
+              {cartProducts.map((product) => {
+                return (
+                  <div key={product.id} className="summary-item">
+                    <p>{product.name}</p>
+                    <p>${product.price.toFixed(2)}</p>
+                    <p>{product.quantity}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="summary-totals">
+              <div className="summary-row">
+                <span>Subtotal</span>
+                <span>${subtotal.toFixed(2)}</span>
+              </div>
+              <div className="summary-row">
+                <span>Shipping</span>
+                <span>$5.00</span>
+              </div>
+              <div className="summary-row">
+                <span>Tax</span>
+                <span>${tax.toFixed(2)}</span>
+              </div>
+              <div className="summary-row summary-row-total">
+                <span>Total</span>
+                <span>${total.toFixed(2)}</span>
+              </div>
+            </div>
           </div>
           <div className="bottom-summary-container">
             <Link to="/checkout" className="checkout-link">
