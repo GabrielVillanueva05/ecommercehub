@@ -9,6 +9,15 @@ Created by: **Gabriel Villanueva**
 
 **Ecommerce Hub** is a web application where users can look through a catalog of products, choose which to add to cart, and manipulate quantities and totals at the cart. There is also login/signup functionality implemented using supabase database. The final page of the app, is a demo order where the app returns the confirmed order as a browser alert.
 
+## Tech Stack
+
+- Frontend: React, JavaScript, HTML, CSS, Vite
+- Authentication: Supabase Auth
+- Product Data: DummyJSON REST API
+- Deployment: Netlify
+- Version Control: Git and Github
+
+
 ## Features
 
 The following functionality is completed:
@@ -18,24 +27,21 @@ The following functionality is completed:
 * [x] A cart page where users are able to view items that are in cart, their respective price and quantity. A cart summary also displays similar data but also including a order total section where shipping and tax are included.
 * [x] A checkout page where the order summary is displayed with items and their quantities, a total amount in US dollar, a disclaimer demo message and a button where the user can place a sample order.
 * [x] A footer that is fixed to the bottom of the screen where users can access the same navigation links as the navigation bar, a small company message and a real gmail to contact me.
+* [x] Shopping cart persistence using localStorage
 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-![Demo GIF](ecomhub.gif)
-
 <img src="./ecomhub.gif" alt="EcommerceHub Demo" width="700">
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+gif created using *ezgif.com*
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+One of the main challenges was implementing user authentication with Supabase and ensuring the signup and login processes worked correctly.
+
+Another challenge involved managing shopping cart state and creating a responsive layout that displays product cards and cart information consistently across different screen sizes.
+
+Working through these challenges helped strengthen my understanding of React state management, API integration, authentication, and responsive web design.
