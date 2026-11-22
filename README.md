@@ -25,6 +25,7 @@ The following functionality is completed:
 Here's a walkthrough of implemented features:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Demo GIF](./assets/econhub.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
