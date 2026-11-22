@@ -22,19 +22,31 @@ const Cart = ({ cartProducts, setCartProducts }) => {
   }, 0);
 
   const tax = subtotal * 0.07;
-  const total = subtotal + tax + 5;
+
+  const shipping = cartProducts.length > 0 ? 5 : 0;
+  // const shipping = 999;
+  const total = subtotal + tax + shipping;
 
   const handleAddQuantity = (product) => {
-    product.quantity++;
-
-    setCartProducts([...cartProducts]);
+    setCartProducts((prevCart) =>
+      prevCart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
+      ),
+    );
   };
 
   const handleMinusQuantity = (product) => {
-    if (product.quantity > 1) {
-      product.quantity--;
-      setCartProducts([...cartProducts]);
-    } else handleCartRemove(product.id);
+    setCartProducts((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        )
+        .filter((item) => item.quantity > 0),
+    );
   };
 
   return (
@@ -128,7 +140,7 @@ const Cart = ({ cartProducts, setCartProducts }) => {
               </div>
               <div className="summary-row">
                 <span>Shipping</span>
-                <span>$5.00</span>
+                <span>${shipping.toFixed(2)}</span>
               </div>
               <div className="summary-row">
                 <span>Tax</span>

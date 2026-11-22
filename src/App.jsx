@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import { supabase } from "./supabaseClient";
 import { useState, useEffect } from "react";
 
@@ -55,6 +56,15 @@ function App() {
         <Route
           path="/login"
           element={<Login user={user} setUser={setUser} />}
+        />
+        <Route
+          path="/checkout"
+          element={
+            <Checkout
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
+            />
+          }
         />
       </Routes>
 

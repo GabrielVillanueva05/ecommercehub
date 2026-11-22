@@ -1,0 +1,51 @@
+.checkout-page {
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #25252b;
+  color: white;
+  border-radius: 12px;
+  min-height: 350px;
+}
+
+.checkout-page h1 {
+  margin-bottom: 30px;
+}
+
+.checkout-page h2 {
+  margin-bottom: 20px;
+}
+
+.checkout-page h3 {
+  margin: 25px 0;
+}
+
+.checkout-page p {
+  margin-bottom: 12px;
+}
+
+.checkout-page button {
+  background: #22c55e;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.checkout-page button:hover {
+  background: #16a34a;
+}
+
+.checkout-page a {
+  color: #22c55e;
+}
+
+@media (max-width: 700px) {
+  .checkout-page {
+    margin: 20px;
+    padding: 24px;
+  }
+}
