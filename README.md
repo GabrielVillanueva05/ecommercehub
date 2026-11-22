@@ -4,7 +4,7 @@ Created by: **Gabriel Villanueva**
 
 # Link to Live Project
 
-[Click here](ecommercehub2026.netlify.app)
+[Click here](https://ecommercehub2026.netlify.app/)
 
 
 **Ecommerce Hub** is a web application where users can look through a catalog of products, choose which to add to cart, and manipulate quantities and totals at the cart. There is also login/signup functionality implemented using supabase database. The final page of the app, is a demo order where the app returns the confirmed order as a browser alert.
