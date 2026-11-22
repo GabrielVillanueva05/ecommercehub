@@ -2,7 +2,6 @@ import "./Cart.css";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CiCircleRemove } from "react-icons/ci";
-import { useEffect } from "react";
 
 const Cart = ({ cartProducts, setCartProducts }) => {
   console.log(cartProducts);
@@ -12,10 +11,6 @@ const Cart = ({ cartProducts, setCartProducts }) => {
 
     setCartProducts(updatedCart);
   };
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartProducts));
-  }, [cartProducts]);
 
   const subtotal = cartProducts.reduce((acc, item) => {
     return acc + item.price * item.quantity;

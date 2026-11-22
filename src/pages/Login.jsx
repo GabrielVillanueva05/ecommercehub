@@ -22,7 +22,6 @@ const Login = ({ setUser }) => {
     } else {
       setUser({ email });
       navigate("/");
-      console.log("Logged in successfully:", email, password);
     }
   }
 

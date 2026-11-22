@@ -20,6 +20,10 @@ function App() {
   });
 
   useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  }, [cartProducts]);
+
+  useEffect(() => {
     const getUser = async () => {
       const { data } = await supabase.auth.getSession();
       setUser(data.session?.user || null);
